@@ -38,3 +38,31 @@ CREATE TABLE lojas(
     nome VARCHAR(100) NOT NULL
 );
 ```
+
+```sql
+CREATE TABLE lojas_produtos(
+    loja_id INT NOT NULL,
+    produto_id INT NOT NULL,
+    estoque INT NOT NULL,
+
+    -- Criando uma  CHAVE COMPOSTA, ou seja,
+    -- baseada em mais de uma coluna/campo
+    PRIMARY KEY(loja_id,produto_id),
+
+
+    -- Se na tabela de lojas for excluida, 
+    -- aqui na tabela lojas_produtos TODOS OS PRODUTOS de estoque
+    -- desta loja excluida TAMBEM SERÃO EXCLUIDOS.
+    FOREIGN KEY (loja_id) REFERENCES lojas(id) ON DELETE CASCADE,
+
+    -- Ao tentar excluir um produto, se este produto esta sendo 
+    -- usado em algum registro de estoque, NÃO PODEMOS PERMITIR
+    -- a exclusão! [isso já é o padrão]
+    FOREIGN KEY (produto_id) REFERENCES produtos(id),
+
+
+);
+```
+
+```sql
+```
