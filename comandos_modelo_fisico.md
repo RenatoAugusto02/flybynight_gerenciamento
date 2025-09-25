@@ -63,6 +63,3 @@ CREATE TABLE lojas_produtos(
 
 );
 ```
-
-```sql
-```
