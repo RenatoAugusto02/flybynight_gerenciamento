@@ -75,3 +75,24 @@ WHERE loja_id = 4 AND produto_id = 1;
 ```sql
 DELETE FROM produtos WHERE id = 4;
 ```
+
+## Realizando consultas para vizualização de dados
+
+```sql
+-- Contando quantos registros existem na tabela produtos
+-- O * representa todas as linhas/registros
+SELECT COUNT(*) FROM produtos;
+
+-- Exibir apenas o nome, preço e quantidade dos produtos
+SELECT nome, preco, quantidade FROM produtos;
+
+-- Exibir apenas o nome, preço e quantidade dos produtos
+-- que custem acima de 1000 reais
+SELECT nome, preco, quantidade FROM produtos
+WHERE preco > 1000;
+
+-- Exibir somente o nome e a descrição dos produtos
+-- fornecedor Livraria Demais da Conta
+SELECT nome, descricao, fornecedor_id FROM produtos
+WHERE fornecedor_id = 4;
+```
