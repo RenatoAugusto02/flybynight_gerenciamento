@@ -9,5 +9,12 @@ function buscarFornecedores($conexao) {
     $sql = "SELECT * FROM fornecedores";
     $consulta = $conexao -> query($sql);  
     return $consulta -> fetchAll(); 
-}
+};
+
+function buscarFornecedore($conexao, $nome){
+    $sql = "INSERT INTO fornecedores (nome) VALUES(:nome)";
+    $consulta = $conexao -> prepare($sql);
+    $consulta->bindValue(":nome", $nome);
+    $consulta->execute();
+};
 ?>

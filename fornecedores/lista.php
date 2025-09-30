@@ -3,7 +3,9 @@
 
     $fornecedores = buscarFornecedores($conexao);
 
-    //var_dump($fornecedores);
+    /*echo"<pre>";
+    var_dump($fornecedores);
+    echo"</pre>";*/
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +19,7 @@
 <body>
     
 <h1>Fornecedores</h1>
-<a href="">Novo fornecedor</a>
+<a href="../inserir.php">Novo fornecedor</a>
 <a href="../index.php">Voltar</a>
 
 <!-- Estruturando uma tabela HTML para exibir os dados -->
@@ -28,11 +30,12 @@
         <th>NOME</th>
     </tr>
     <!-- As linhas abaixo (tr/td) serão geradas dinamicamente, ou seja, usando loops(foreach) no array ($fornecedor)-->
-     <?php foreach($fornecedores as $fornecedador) { ?>
+     <?php foreach($fornecedores as $fornecedor) { ?>
 
         <tr>
-            <td>ID</td>
-            <td>Nome</td>
+            <td><?=$fornecedor['id']?></td>
+            <td><?=$fornecedor['nome']?></td>
+          
         </tr>
 
 
