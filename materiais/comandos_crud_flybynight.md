@@ -93,6 +93,18 @@ WHERE preco > 1000;
 
 -- Exibir somente o nome e a descrição dos produtos
 -- fornecedor Livraria Demais da Conta
+
+-- Versão 1: só considera a tabela de produtos
 SELECT nome, descricao, fornecedor_id FROM produtos
 WHERE fornecedor_id = 4;
+
+-- Versão 2: usamos um JUNÇÃO de tabelas (produtos e fornecedores)
+-- O objetivo é conseguir trazer/exibir TAMBÉM o nome do FORNECEDOR
+SELECT 
+    produtos.nome,
+    produtos.descricao,
+    fornecedores.nome
+FROM produtos JOIN fornecedores
+ON produtos.fornecedores_id = fornecedores.id
+WHERE produtos.fornecedor_id = 4;
 ```
